@@ -1,3 +1,5 @@
+## Create a new project connected to Github
+
 Create GitHub repository
 ```
 https://github.com
@@ -74,9 +76,9 @@ src/style.scss
 	
 Add dummy style
 ```
-	body {
-		color: red;
-	}
+body {
+	color: red;
+}
 ```
 	
 Install plugin and loaders
@@ -91,68 +93,79 @@ Add webpack configuration lines at webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
+...
 
 module.exports = {
-output: {
-	...
-},
-entry: {
-	...
-},
-plugins: [
-	new HtmlWebpackPlugin({  
-		filename: 'index.html',
-		template: 'src/index.html',
-		hash: true
-	}),
-	new MiniCSSExtractPlugin({
-		filename: "style.css",
-	})
-],
-module: {
-	rules: [
-	{ 
-		test: /\.scss$/, 
-		loader: [
-			MiniCSSExtractPlugin.loader,
-			"css-loader",
-			'sass-loader'
+	output: {
+		...
+	},
+	entry: {
+		...
+	},
+	plugins: [
+		new HtmlWebpackPlugin({  
+			filename: 'index.html',
+			template: 'src/index.html',
+			hash: true
+		}),
+		new MiniCSSExtractPlugin({
+			filename: "style.css",
+		})
+	],
+	module: {
+		rules: [
+		{ 
+			test: /\.scss$/, 
+			loader: [
+				MiniCSSExtractPlugin.loader,
+				"css-loader",
+				'sass-loader'
+			]
+		}
 		]
 	}
-	]
 }
 ```
 
-Add import CSS file at src/index.js
-	import './style.scss';
+Add *import style* file at src/index.js
+```
+import './style.scss';
+```
 	
 Create HTML file
-	src/index.html
+```
+src/index.html
+```
 	
 Add HTML content
-
-	<!DOCTYPE html>
-	<html lang="en">
-	<head>
-	  <meta charset="UTF-8">
-	  <title>Example</title>
-	  
-	</head>
-	<body>
-	  <h1>Hello world</h1>
-	</body>
-	</html>
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Example</title>
+	
+</head>
+<body>
+	<h1>Hello world</h1>
+</body>
+</html>
+```
 	
 Install server 
-	npm install -D webpack-dev-server
+```
+npm install -D webpack-dev-server
+```
 	
 Add webpack server configuration at package.json
-	"scripts": {
-		...
-		"start": "webpack-dev-server --mode development --open"
-	},
+```
+"scripts": {
+	...
+	"start": "webpack-dev-server --mode development --open"
+},
+```
 
-## Conntect to Firebase
+## Deploy to Firebase hosting
 
 Install firebase
 ```
@@ -170,7 +183,7 @@ Deploy
 firebase deploy
 ```
 
-## TravisCI
+## Connect Github to TravisCI for CI/CD
 
 Create .travis.yml file
 ```
@@ -193,7 +206,7 @@ notifications:
   on_success: always
 ```
 
-Important: update nodeJS version on .travis.yml file
+**Important:** update nodeJS version on .travis.yml file
 ```
 node --version
 ```
@@ -212,8 +225,3 @@ Set your Token Firbase as Environment Travis-CI variable
 ```
 Travis-CI > My Repositories > {Your repository} > More options > Settings > Environment Variables
 ```
-
-
-
-
-
