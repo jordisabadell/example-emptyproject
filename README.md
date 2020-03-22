@@ -33,7 +33,7 @@ src/index.js
 
 Add dummy log
 ```
-console.log("hello world")
+console.log("Done!")
 ```
 
 Test
@@ -147,7 +147,7 @@ Add HTML content
 	
 </head>
 <body>
-	<h1>Hello world</h1>
+	<h1>Done!</h1>
 </body>
 </html>
 ```
