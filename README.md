@@ -1,8 +1,9 @@
 ## Create a new project connected to Github
 
-Create GitHub repository
+Create GitHub repository with an empty *README.md* file
 ```
 https://github.com
+Create README.md file
 ```
 
 Pull on local
